@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实践题 - 选项卡</title>
+    <style type="text/css">
+    	.act{background:#fff;position:relative;margin-bottom: -1px;border-bottom: none;}
+    	.hide{display: none;}
+        .content{margin:0 auto;width: 500px;}
+        #tab_1 li{float: left;list-style: none;border: 1px solid #DFDFDF;border-bottom: none;height: 40px;width: 80px;font: 13px /40px "微软雅黑";text-align: center;cursor: pointer;background: #E9E8E8;margin-right: 3px;}
+       	#tab_2{clear:both;text-align:center;margin:5px auto;width: 450px;height: 150px;background: #E9E8E8;padding-top: 3px;font: 13px /20px "微软雅黑";border-top:none ;}
+    </style>
+    <script type="text/javascript">
+    	window.onload=function(){
+			xuanxiang("tab_1","li","tab_2","div","onmouseover");
+			function xuanxiang(tab_1,li,tab_2,div,evt){
+				var tab_1=document.getElementById("tab_1");
+				var lis=tab_1.getElementsByTagName("li");
+				var tab_2=document.getElementById("tab_2");
+				var divs=tab_2.getElementsByTagName("div");
+				for(var i=0;i<lis.length;i++){
+					lis[i].index=i;
+					lis[i][evt]=function(){
+						for(var i=0;i<lis.length;i++){
+							lis[i].className="";
+							divs[i].className="hide";
+						}
+						lis[this.index].className="act";
+						divs[this.index].className="";
+					}
+				}
+			}
+		}
+    </script>
+</head>
+<body>
+<!-- HTML页面布局 -->
+    <div class="content">
+	    <ul id="tab_1">
+	        <li class="act">房产</li>
+	        <li>家具</li>
+	        <li>二手房</li>
+	    </ul>
+        <div id="tab_2">
+	        <div>
+	            <p>275万购昌平邻铁三居 总价20万买一居</p>
+	            <p>200万内购五环三居 140万安家东三环</p>
+	            <p>北京首现零首付楼盘 53万购东5环50平</p>
+	            <p>京楼盘直降5000 中信府 公园楼王现房</p>
+	        </div>
+	        <div class="hide">
+	            <p>40平出租屋大改造 美少女的混搭小窝</p>
+	            <p>经典清新简欧爱家 90平老房焕发新生</p>	
+	            <p>新中式的酷色温情 66平撞色活泼家居</p>		
+	            <p>瓷砖就像选好老婆 卫生间烟道的设计</p>		
+	        </div>
+	        <div class="hide">
+	            <p>通州豪华3居260万 二环稀缺2居250w甩</p>
+	            <p>西3环通透2居290万 130万2居限量抢购</p>
+	            <p>黄城根小学学区仅260万 121平70万抛!</p>
+	            <p>独家别墅280万 苏州桥2居优惠价248万</p>
+	        </div>
+        </div>
+    </div>
+</body>
+</html>
